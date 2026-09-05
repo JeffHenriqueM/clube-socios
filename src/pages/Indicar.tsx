@@ -18,8 +18,8 @@ export default function Indicar() {
     if (!usuario) return;
     const nova: Indicacao = {
       id: novoId('i'),
-      socioId: usuario.id,
-      socioNome: usuario.nome,
+      membroId: usuario.id,
+      membroNome: usuario.nome,
       nome: nome.trim(),
       email: email.trim().toLowerCase(),
       telefone: telefone.trim() || undefined,
@@ -40,7 +40,7 @@ export default function Indicar() {
       <Titulo>Indicar alguém</Titulo>
       <p className="-mt-3 mb-5 max-w-2xl text-sm text-slate-500">
         A indicação vai para aprovação. Aprovada, a pessoa ganha um acesso de cliente com desconto
-        nos parceiros do clube.
+        nos parceiros do programa.
       </p>
       <Card className="max-w-lg">
         <form onSubmit={enviar} className="space-y-4">

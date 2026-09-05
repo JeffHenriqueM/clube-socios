@@ -29,7 +29,7 @@ export default function EmpresaDetalhe() {
   const servicos = servicosDaEmpresa(banco, empresa.id).filter((s) => s.ativo);
   const avaliacoes = avaliacoesDaEmpresa(banco, empresa.id);
   const jaAvaliou = avaliacoes.some((a) => a.autorId === usuario?.id);
-  const podeAvaliar = usuario && (usuario.papel === 'socio' || usuario.papel === 'cliente');
+  const podeAvaliar = usuario && (usuario.papel === 'membro' || usuario.papel === 'cliente');
 
   function enviarAvaliacao(e: React.FormEvent) {
     e.preventDefault();

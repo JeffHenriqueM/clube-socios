@@ -5,9 +5,9 @@ import { resetarBanco } from '../data/store';
 import { Campo, botaoCls, botaoSecCls, inputCls } from '../components/ui';
 
 const DEMOS = [
-  { label: 'Admin', email: 'admin@clube.com' },
-  { label: 'Sócio Ouro', email: 'marina@exemplo.com' },
-  { label: 'Sócio Bronze', email: 'rafael@exemplo.com' },
+  { label: 'Admin', email: 'admin@indica.com' },
+  { label: 'Membro Ouro', email: 'marina@exemplo.com' },
+  { label: 'Membro Bronze', email: 'rafael@exemplo.com' },
   { label: 'Cliente', email: 'camila@exemplo.com' },
   { label: 'Parceiro', email: 'contato@maraberto.com' },
 ];
@@ -26,7 +26,7 @@ export default function Login() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4">
       <div className="w-full max-w-sm">
-        <h1 className="mb-1 text-center text-2xl font-bold text-emerald-700">Clube de Sócios</h1>
+        <h1 className="mb-1 text-center text-2xl font-bold text-emerald-700">Programa Indica</h1>
         <p className="mb-6 text-center text-sm text-slate-500">
           Benefícios, parceiros e passeios da região.
         </p>

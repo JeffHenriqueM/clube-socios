@@ -2,7 +2,7 @@ import { useSyncExternalStore } from 'react';
 import type { Banco } from '../types';
 import { seed } from './seed';
 
-const CHAVE = 'clube-socios:banco:v1';
+const CHAVE = 'programa-indica:banco:v1';
 
 /**
  * Camada de dados do protótipo.

@@ -10,11 +10,11 @@ interface ItemNav {
 }
 
 const NAV: ItemNav[] = [
-  { para: '/', label: 'Início', papeis: ['admin', 'socio', 'cliente', 'empresa'] },
-  { para: '/parceiros', label: 'Parceiros', papeis: ['admin', 'socio', 'cliente'] },
-  { para: '/passeios', label: 'Passeios', papeis: ['admin', 'socio', 'cliente'] },
-  { para: '/indicar', label: 'Indicar', papeis: ['socio'] },
-  { para: '/indicacoes', label: 'Indicações', papeis: ['admin', 'socio'] },
+  { para: '/', label: 'Início', papeis: ['admin', 'membro', 'cliente', 'empresa'] },
+  { para: '/parceiros', label: 'Parceiros', papeis: ['admin', 'membro', 'cliente'] },
+  { para: '/passeios', label: 'Passeios', papeis: ['admin', 'membro', 'cliente'] },
+  { para: '/indicar', label: 'Indicar', papeis: ['membro'] },
+  { para: '/indicacoes', label: 'Indicações', papeis: ['admin', 'membro'] },
   { para: '/minha-empresa', label: 'Minha empresa', papeis: ['empresa'] },
   { para: '/admin/empresas', label: 'Empresas', papeis: ['admin'] },
   { para: '/admin/pessoas', label: 'Pessoas', papeis: ['admin'] },
@@ -31,7 +31,7 @@ export default function Layout() {
     <div className="min-h-screen bg-slate-50">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-4 px-4 py-3">
-          <span className="text-lg font-bold text-emerald-700">Clube de Sócios</span>
+          <span className="text-lg font-bold text-emerald-700">Programa Indica</span>
           <nav className="flex flex-1 flex-wrap gap-1">
             {itens.map((i) => (
               <NavLink

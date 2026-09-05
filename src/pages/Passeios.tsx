@@ -26,7 +26,7 @@ export default function Passeios() {
     <>
       <Titulo>Passeios da região</Titulo>
       <p className="-mt-3 mb-5 text-sm text-slate-500">
-        Reserva e pagamento são feitos direto com o parceiro. O clube só apresenta e garante o seu
+        Reserva e pagamento são feitos direto com o parceiro. O programa só apresenta e garante o seu
         desconto.
       </p>
       <input

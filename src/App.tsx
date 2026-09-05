@@ -37,7 +37,7 @@ export default function App() {
         <Route
           path="/parceiros"
           element={
-            <Protegido papeis={['admin', 'socio', 'cliente']}>
+            <Protegido papeis={['admin', 'membro', 'cliente']}>
               <Parceiros />
             </Protegido>
           }
@@ -45,7 +45,7 @@ export default function App() {
         <Route
           path="/parceiros/:id"
           element={
-            <Protegido papeis={['admin', 'socio', 'cliente']}>
+            <Protegido papeis={['admin', 'membro', 'cliente']}>
               <EmpresaDetalhe />
             </Protegido>
           }
@@ -53,7 +53,7 @@ export default function App() {
         <Route
           path="/passeios"
           element={
-            <Protegido papeis={['admin', 'socio', 'cliente']}>
+            <Protegido papeis={['admin', 'membro', 'cliente']}>
               <Passeios />
             </Protegido>
           }
@@ -61,7 +61,7 @@ export default function App() {
         <Route
           path="/indicar"
           element={
-            <Protegido papeis={['socio']}>
+            <Protegido papeis={['membro']}>
               <Indicar />
             </Protegido>
           }
@@ -69,7 +69,7 @@ export default function App() {
         <Route
           path="/indicacoes"
           element={
-            <Protegido papeis={['admin', 'socio']}>
+            <Protegido papeis={['admin', 'membro']}>
               <Indicacoes />
             </Protegido>
           }

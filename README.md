@@ -1,14 +1,14 @@
-# Clube de Sócios
+# Programa Indica
 
 Plataforma web de **acessos por nível + indicação + parceiros da região**.
 
-Sócios do resort recebem um acesso (**Bronze, Prata, Ouro, Integral**) que dá desconto nos
-parceiros cadastrados. Cada sócio pode **indicar pessoas**, que ao serem aprovadas ganham um
+Membros do resort recebem um acesso (**Bronze, Prata, Ouro, Integral**) que dá desconto nos
+parceiros cadastrados. Cada membro pode **indicar pessoas**, que ao serem aprovadas ganham um
 acesso de **Cliente**. Empresas parceiras cadastram seus próprios **serviços e preços** e recebem
-**avaliações** de sócios e clientes. Passeios da região são um tipo de serviço — então entram no
+**avaliações** de membros e clientes. Passeios da região são um tipo de serviço — então entram no
 mesmo catálogo, com o mesmo desconto e a mesma avaliação.
 
-> O clube é **apenas intermediário**: não processa reserva nem pagamento. Preço, negociação e
+> O programa é **apenas intermediário**: não processa reserva nem pagamento. Preço, negociação e
 > cobrança acontecem direto entre a pessoa e o parceiro.
 
 ## Rodar
@@ -24,17 +24,17 @@ Acessos de teste (senha `123456`, botões de atalho na tela de login):
 
 | Papel | E-mail |
 | --- | --- |
-| Admin | admin@clube.com |
-| Sócio Ouro | marina@exemplo.com |
-| Sócio Bronze | rafael@exemplo.com |
+| Admin | admin@indica.com |
+| Membro Ouro | marina@exemplo.com |
+| Membro Bronze | rafael@exemplo.com |
 | Cliente | camila@exemplo.com |
 | Parceiro | contato@maraberto.com |
 
 ## O que cada papel faz
 
-- **Admin** — cadastra sócios e define nível; cadastra empresas parceiras (e o login delas);
+- **Admin** — cadastra membros e define nível; cadastra empresas parceiras (e o login delas);
   cadastra/edita serviços e passeios de qualquer parceiro; aprova ou recusa indicações.
-- **Sócio** — vê seu nível e desconto, navega parceiros e passeios com o preço já com desconto,
+- **Membro** — vê seu nível e desconto, navega parceiros e passeios com o preço já com desconto,
   avalia, indica pessoas e acompanha o status das indicações.
 - **Cliente** — mesmo acesso de navegação e avaliação, com o desconto do nível Cliente.
 - **Parceiro (empresa)** — edita os dados da empresa, publica/edita seus serviços e preços,

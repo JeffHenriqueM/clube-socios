@@ -2,7 +2,7 @@ import { createContext, useContext, useMemo, useState, type ReactNode } from 're
 import { lerBanco, useBanco } from '../data/store';
 import type { Usuario } from '../types';
 
-const CHAVE_SESSAO = 'clube-socios:sessao';
+const CHAVE_SESSAO = 'programa-indica:sessao';
 
 interface AuthCtx {
   usuario: Usuario | null;

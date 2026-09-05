@@ -3,13 +3,13 @@ import toast from 'react-hot-toast';
 import { atualizar, inserir, novoId, useBanco } from '../data/store';
 import { Campo, Card, NivelBadge, Titulo, botaoCls, botaoSecCls, inputCls } from '../components/ui';
 import { dataCurta } from '../lib/util';
-import { NIVEIS_SOCIO, type Nivel, type Papel, type Usuario } from '../types';
+import { NIVEIS_MEMBRO, type Nivel, type Papel, type Usuario } from '../types';
 
 const VAZIO = { nome: '', email: '', telefone: '', nivel: 'bronze' as Nivel };
 
 const ROTULO_PAPEL: Record<Papel, string> = {
   admin: 'Admin',
-  socio: 'Sócio',
+  membro: 'Membro',
   cliente: 'Cliente',
   empresa: 'Parceiro',
 };
@@ -20,28 +20,28 @@ export default function AdminPessoas() {
   const [aberto, setAberto] = useState(false);
   const [filtro, setFiltro] = useState<Papel | 'todos'>('todos');
 
-  function criarSocio(e: React.FormEvent) {
+  function criarMembro(e: React.FormEvent) {
     e.preventDefault();
     const email = form.email.trim().toLowerCase();
     if (banco.usuarios.some((u) => u.email.toLowerCase() === email)) {
       toast.error('Já existe um acesso com esse e-mail.');
       return;
     }
-    const socio: Usuario = {
+    const membro: Usuario = {
       id: novoId('u'),
       nome: form.nome.trim(),
       email,
       telefone: form.telefone.trim() || undefined,
-      papel: 'socio',
+      papel: 'membro',
       senha: '123456',
       nivel: form.nivel,
       ativo: true,
       criadoEm: new Date().toISOString(),
     };
-    inserir('usuarios', socio);
+    inserir('usuarios', membro);
     setForm(VAZIO);
     setAberto(false);
-    toast.success('Sócio cadastrado (senha 123456).');
+    toast.success('Membro cadastrado (senha 123456).');
   }
 
   const lista = banco.usuarios.filter((u) => filtro === 'todos' || u.papel === filtro);
@@ -51,7 +51,7 @@ export default function AdminPessoas() {
       <Titulo
         acao={
           <button className={botaoCls} onClick={() => setAberto((v) => !v)}>
-            {aberto ? 'Fechar' : 'Novo sócio'}
+            {aberto ? 'Fechar' : 'Novo membro'}
           </button>
         }
       >
@@ -60,7 +60,7 @@ export default function AdminPessoas() {
 
       {aberto && (
         <Card className="mb-6 max-w-lg">
-          <form onSubmit={criarSocio} className="space-y-4">
+          <form onSubmit={criarMembro} className="space-y-4">
             <Campo label="Nome">
               <input className={inputCls} value={form.nome} onChange={(e) => setForm({ ...form, nome: e.target.value })} required />
             </Campo>
@@ -76,7 +76,7 @@ export default function AdminPessoas() {
                 value={form.nivel}
                 onChange={(e) => setForm({ ...form, nivel: e.target.value as Nivel })}
               >
-                {NIVEIS_SOCIO.map((n) => (
+                {NIVEIS_MEMBRO.map((n) => (
                   <option key={n} value={n}>
                     {n}
                   </option>
@@ -84,7 +84,7 @@ export default function AdminPessoas() {
               </select>
             </Campo>
             <button className={botaoCls} type="submit">
-              Cadastrar sócio
+              Cadastrar membro
             </button>
           </form>
         </Card>
@@ -96,7 +96,7 @@ export default function AdminPessoas() {
         onChange={(e) => setFiltro(e.target.value as Papel | 'todos')}
       >
         <option value="todos">Todos os papéis</option>
-        <option value="socio">Sócios</option>
+        <option value="membro">Membros</option>
         <option value="cliente">Clientes</option>
         <option value="empresa">Parceiros</option>
         <option value="admin">Admins</option>
@@ -122,7 +122,7 @@ export default function AdminPessoas() {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                {u.papel === 'socio' && (
+                {u.papel === 'membro' && (
                   <select
                     className={`${inputCls} w-32`}
                     value={u.nivel ?? 'bronze'}
@@ -131,7 +131,7 @@ export default function AdminPessoas() {
                       toast.success('Nível atualizado.');
                     }}
                   >
-                    {NIVEIS_SOCIO.map((n) => (
+                    {NIVEIS_MEMBRO.map((n) => (
                       <option key={n} value={n}>
                         {n}
                       </option>

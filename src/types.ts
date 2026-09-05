@@ -1,6 +1,6 @@
 export type Nivel = 'bronze' | 'prata' | 'ouro' | 'integral' | 'cliente';
 
-export type Papel = 'admin' | 'socio' | 'cliente' | 'empresa';
+export type Papel = 'admin' | 'membro' | 'cliente' | 'empresa';
 
 export interface NivelInfo {
   id: Nivel;
@@ -19,7 +19,7 @@ export const NIVEIS: Record<Nivel, NivelInfo> = {
     ordem: 0,
     descontoPadrao: 5,
     cor: 'bg-slate-200 text-slate-700 border-slate-300',
-    descricao: 'Acesso de cliente indicado por um sócio.',
+    descricao: 'Acesso de cliente indicado por um membro.',
   },
   bronze: {
     id: 'bronze',
@@ -27,7 +27,7 @@ export const NIVEIS: Record<Nivel, NivelInfo> = {
     ordem: 1,
     descontoPadrao: 10,
     cor: 'bg-amber-100 text-amber-800 border-amber-300',
-    descricao: 'Acesso de entrada do sócio.',
+    descricao: 'Acesso de entrada do membro.',
   },
   prata: {
     id: 'prata',
@@ -55,7 +55,7 @@ export const NIVEIS: Record<Nivel, NivelInfo> = {
   },
 };
 
-export const NIVEIS_SOCIO: Nivel[] = ['bronze', 'prata', 'ouro', 'integral'];
+export const NIVEIS_MEMBRO: Nivel[] = ['bronze', 'prata', 'ouro', 'integral'];
 
 export interface Usuario {
   id: string;
@@ -68,7 +68,7 @@ export interface Usuario {
   nivel?: Nivel;
   /** empresa que este usuário administra (papel === 'empresa') */
   empresaId?: string;
-  /** sócio que indicou este cliente */
+  /** membro que indicou este cliente */
   indicadoPor?: string;
   ativo: boolean;
   criadoEm: string;
@@ -139,8 +139,8 @@ export type StatusIndicacao = 'pendente' | 'aprovada' | 'recusada';
 
 export interface Indicacao {
   id: string;
-  socioId: string;
-  socioNome: string;
+  membroId: string;
+  membroNome: string;
   nome: string;
   email: string;
   telefone?: string;

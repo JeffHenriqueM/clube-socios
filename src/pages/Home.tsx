@@ -30,7 +30,7 @@ export default function Home() {
       <>
         <Titulo>Visão geral</Titulo>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Numero label="Sócios" valor={banco.usuarios.filter((u) => u.papel === 'socio').length} />
+          <Numero label="Membros" valor={banco.usuarios.filter((u) => u.papel === 'membro').length} />
           <Numero label="Clientes" valor={banco.usuarios.filter((u) => u.papel === 'cliente').length} />
           <Numero label="Parceiros" valor={banco.empresas.length} />
           <Numero
@@ -88,10 +88,10 @@ export default function Home() {
     );
   }
 
-  // sócio e cliente
+  // membro e cliente
   const nivel = usuario.nivel ?? 'cliente';
   const info = NIVEIS[nivel];
-  const minhasIndicacoes = banco.indicacoes.filter((i) => i.socioId === usuario.id);
+  const minhasIndicacoes = banco.indicacoes.filter((i) => i.membroId === usuario.id);
   const quemIndicou = banco.usuarios.find((u) => u.id === usuario.indicadoPor);
 
   return (
@@ -116,7 +116,7 @@ export default function Home() {
         </div>
       </Card>
 
-      {usuario.papel === 'socio' && (
+      {usuario.papel === 'membro' && (
         <div className="mb-8 grid gap-4 sm:grid-cols-3">
           <Numero label="Indicações feitas" valor={minhasIndicacoes.length} />
           <Numero

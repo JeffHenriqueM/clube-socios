@@ -18,7 +18,7 @@ export default function Indicacoes() {
 
   const ehAdmin = usuario.papel === 'admin';
   const lista = banco.indicacoes
-    .filter((i) => ehAdmin || i.socioId === usuario.id)
+    .filter((i) => ehAdmin || i.membroId === usuario.id)
     .sort((a, b) => b.criadoEm.localeCompare(a.criadoEm));
 
   function aprovar(ind: Indicacao) {
@@ -38,7 +38,7 @@ export default function Indicacoes() {
       papel: 'cliente',
       senha: '123456',
       nivel: 'cliente',
-      indicadoPor: ind.socioId,
+      indicadoPor: ind.membroId,
       ativo: true,
       criadoEm: new Date().toISOString(),
     };
@@ -69,7 +69,7 @@ export default function Indicacoes() {
                     {i.telefone ? ` · ${i.telefone}` : ''}
                   </div>
                   {ehAdmin && (
-                    <div className="text-sm text-slate-500">Indicado por {i.socioNome}</div>
+                    <div className="text-sm text-slate-500">Indicado por {i.membroNome}</div>
                   )}
                   {i.observacao && <p className="mt-1 text-sm text-slate-600">{i.observacao}</p>}
                   <div className="mt-1 text-xs text-slate-400">{dataCurta(i.criadoEm)}</div>
